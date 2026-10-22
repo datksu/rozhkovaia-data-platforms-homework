@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS hw3_events (
+    id INT,
+    user_id INT,
+    event_type STRING,
+    value DOUBLE
+)
+PARTITIONED BY (dt STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH '/var/lib/hive-hw3/data/events_2026-10-20.csv'
+OVERWRITE INTO TABLE hw3_events PARTITION (dt='2026-10-20');
+
+LOAD DATA LOCAL INPATH '/var/lib/hive-hw3/data/events_2026-10-21.csv'
+OVERWRITE INTO TABLE hw3_events PARTITION (dt='2026-10-21');
+
+LOAD DATA LOCAL INPATH '/var/lib/hive-hw3/data/events_2026-10-22.csv'
+OVERWRITE INTO TABLE hw3_events PARTITION (dt='2026-10-22');
+
+SHOW PARTITIONS hw3_events;
+SELECT * FROM hw3_events;
