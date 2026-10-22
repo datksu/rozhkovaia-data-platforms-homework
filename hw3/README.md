@@ -14,7 +14,7 @@ Hive 4.1.0 was released/tested against Hadoop 3.4.1; this homework cluster uses 
 ## Automated deployment
 
 ```bash
-./hw1/deploy.sh       # only on a fresh cluster; skips this step if HW1 already works
+./hw1/deploy.sh       # only if starting from scratch on a fresh cluster; skips this step if HW1 already works
 ./hw3/deploy.sh
 ```
 
